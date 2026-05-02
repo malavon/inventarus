@@ -1,0 +1,40 @@
+eerste idee
+database voor parts
+	sqlite of mysql/mariadb embedded?
+inventory zit in inventory file! TSV
+
+parts database:
+---------------
+distributor (digikey/mouser/lcsc etc)
+- voor externe id (letter? int? string?)
+- voor link met distributor part#
+
+wat met lokale sites? mouser.be/mouser.eu vs mouser.com?
+
+pricing?
+- price breaks?
+- distributor id
+- part id
+- currency? eur only?
+-- normalisatie? factor/verhouding
+--- simpeler: * 1000 of * 10000 of zoiets? basically zonder komma?
+
+?part?
+- aparte id nuttig?
+-- link met price break & andere links
+-- kan moeilijk externe id gebruiken zonder supertable?
+-- toch niet nodig? link vertrekt vanuit part, toch?
+--- kan toch uitnormaliseren denk ik? of niet? want dan heb ik id ref nodig
+--- link hier houden -> kolom per distributeur, toch? op zich geen ramp, right?
+---- of 1 id en dan aparte tabel met kolom per distributeur of meerdere records zelfs
+----- meerdere records houdt steek? samennemen met price breaks of zoiets?
+
+aparte tabel voor elk type?
+- nadeel: kan moeilijk externe ids refereren?
+-- vereist nog altijd supertable of zoiets
+capacitor
+crystal/xtal
+resistor
+? comparator ? ic_comparator ?
+...
+
