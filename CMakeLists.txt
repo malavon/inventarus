@@ -22,10 +22,17 @@ set(CCCURSES_HEADERS
 )
 
 set(ELECTARUS_HEADERS
+    db/database.hpp
+    db/database-files.hpp
+    db/util.hpp
+    ui/ui.hpp
 )
 
 add_executable(electarus
     electarus.cpp
+    db/database.cpp
+    db/database-files.cpp
+    ui/ui.cpp
 
     # these are here only for QTCreator
     ${CCCURSES_HEADERS}
@@ -36,6 +43,11 @@ target_include_directories  (electarus PRIVATE ${SQLite3_INCLUDE_DIRS} ${CURSES_
 target_link_libraries	    (electarus PRIVATE ${SQLite3_LIBRARIES} ${CURSES_LIBRARIES})
 
 target_compile_definitions  (electarus PUBLIC DB_DIRECTORY="${DB_PROJECT_DIR}/sql")
+# todo: option? gcc/clang check
+# todo: option? and check for gcc/clang
+target_compile_options      (electarus PUBLIC -Werror)
+target_compile_options      (electarus PUBLIC -Wall -Wextra -Wpedantic)
+
 
 include(GNUInstallDirs)
 install(TARGETS electarus
