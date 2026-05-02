@@ -1,0 +1,155 @@
+---
+Language:        Cpp
+BasedOnStyle: LLVM
+AccessModifierOffset: -6
+AlignArrayOfStructures: Right
+AlignConsecutiveBitFields:
+  Enabled:         true
+  AcrossEmptyLines: true
+  AcrossComments:  true
+AlignConsecutiveMacros:
+  Enabled:         true
+  AcrossEmptyLines: true
+  AcrossComments:  true
+AlignConsecutiveShortCaseStatements:
+  Enabled:         true
+  AcrossEmptyLines: true
+  AcrossComments:  true
+  AlignCaseArrows: true
+  AlignCaseColons: true
+AlignConsecutiveTableGenBreakingDAGArgColons:
+  Enabled:         true
+  AcrossEmptyLines: true
+  AcrossComments:  true
+AlignConsecutiveTableGenCondOperatorColons:
+  Enabled:         true
+  AcrossEmptyLines: true
+  AcrossComments:  true
+AlignConsecutiveTableGenDefinitionColons:
+  Enabled:         true
+  AcrossEmptyLines: true
+  AcrossComments:  true
+AlignEscapedNewlines: LeftWithLastLine
+AlignOperands:   AlignAfterOperator
+AllowShortBlocksOnASingleLine: Empty
+AllowShortEnumsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Empty
+# TBD? AllowShortIfStatementsOnASingleLine: Never
+# LLVM: All, Mine: Inline; AllowShortLambdasOnASingleLine: All
+AttributeMacros:
+  - __capability
+BreakAfterAttributes: Always
+BreakAfterReturnType: Automatic
+BreakArrays:     false
+BreakBeforeBinaryOperators: NonAssignment
+BreakConstructorInitializers: AfterColon
+BreakInheritanceList: AfterComma
+BreakTemplateDeclarations: Yes
+ColumnLimit:     128
+CompactNamespaces: Yes
+# ConstructorInitializerIndentWidth: 4
+#ContinuationIndentWidth: 4
+EmptyLineBeforeAccessModifier: Always
+IncludeBlocks:   Regroup
+IncludeCategories:
+  - Regex:           '^<[^\.]>)'
+    Priority:        5
+  - Regex:           '^<.*\.h>'
+    Priority:        10
+  - Regex:           '^<.*'
+    Priority:        15
+  - Regex:           '^(<|"(gtest|gmock|isl|json|catch[0-9])/)'
+    Priority:        50
+# base priority on number of slashes, group by directory depth
+  - Regex:           '^"([^/]*)\.h(c{0,2}|p{0,2}|x{0,2})"'
+    Priority:        90
+    SortPriority:    90
+  - Regex:           '^"([^/]*)(/[^/]*){1}\.h(c{0,2}|p{0,2}|x{0,2})"'
+    Priority:        90
+    SortPriority:    91
+  - Regex:           '^"([^/]*)(/[^/]*){2}\.h(c{0,2}|p{0,2}|x{0,2})"'
+    Priority:        90
+    SortPriority:    92
+  - Regex:           '^"([^/]*)(/[^/]*){3}\.h(c{0,2}|p{0,2}|x{0,2})"'
+    Priority:        90
+    SortPriority:    93
+  - Regex:           '^"([^/]*)(/[^/]*){4}\.h(c{0,2}|p{0,2}|x{0,2})"'
+    Priority:        90
+    SortPriority:    94
+  - Regex:           '^"([^/]*)(/[^/]*){5}\.h(c{0,2}|p{0,2}|x{0,2})"'
+    Priority:        90
+    SortPriority:    95
+IncludeIsMainRegex: '(Test|_test)?$'
+IncludeIsMainSourceRegex: ''
+IndentCaseLabels: true
+IndentExternBlock: NoIndent
+IndentGotoLabels: false
+IndentPPDirectives: BeforeHash
+IndentRequiresClause: false
+IndentWidth:     8
+IndentWrappedFunctionNames: true
+InsertBraces:    true
+InsertNewlineAtEOF: true
+IntegerLiteralSeparator:
+  Binary:          0
+  BinaryMinDigits: 0
+  Decimal:         0
+  DecimalMinDigits: 0
+  Hex:             0
+  HexMinDigits:    0
+KeepEmptyLines:
+  AtEndOfFile:     false
+  AtStartOfBlock:  false
+  AtStartOfFile:   true
+NamespaceIndentation: None
+PPIndentWidth:   2
+# penalties same as LLVM, here for experimenting
+PenaltyBreakAssignment: 2
+PenaltyBreakBeforeFirstCallParameter: 19
+PenaltyBreakComment: 300
+PenaltyBreakFirstLessLess: 120
+PenaltyBreakOpenParenthesis: 0
+PenaltyBreakScopeResolution: 500
+PenaltyBreakString: 1000
+PenaltyBreakTemplateDeclaration: 10
+PenaltyExcessCharacter: 1000000
+PenaltyIndentedWhitespace: 0
+PenaltyReturnTypeOnItsOwnLine: 60
+# I prefer Left, but: string* a, b means b is NOT a pointer
+PointerAlignment: Right
+QualifierAlignment: Custom
+QualifierOrder: [inline, static, const, volatile, type]
+ReflowComments: false
+RemoveParentheses: ReturnStatement # allows no unnecessary braces ever
+RemoveSemicolon: true
+RequiresClausePosition: WithPreceding
+RequiresExpressionIndentation: Keyword
+# TODO: never? SeparateDefinitionBlocks: Leave
+ShortNamespaceLines: 16
+SortIncludes:    CaseSensitive
+SpaceAfterTemplateKeyword: false
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeParens: ControlStatementsExceptControlMacros
+#SpaceBeforeParensOptions:
+#  AfterControlStatements: true
+#  AfterForeachMacros: true
+#  AfterFunctionDefinitionName: false
+#  AfterFunctionDeclarationName: false
+#  AfterIfMacros:   true
+#  AfterOverloadedOperator: false
+#  AfterPlacementOperator: true
+#  AfterRequiresInClause: false
+#  AfterRequiresInExpression: false
+#  BeforeNonEmptyParentheses: false
+SpaceInEmptyBlock: true
+SpacesInParens:  Custom
+SpacesInParensOptions:
+  ExceptDoubleParentheses: false
+  InCStyleCasts:   false
+  InConditionalStatements: true
+  InEmptyParentheses: false
+  Other:           false
+Standard:        Auto
+TabWidth:        8
+UseTab:          Always
