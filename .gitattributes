@@ -1,0 +1,4 @@
+*.c   encoding=cp1252
+*.cpp encoding=cp1252
+*.h   encoding=cp1252
+*.hpp encoding=cp1252
