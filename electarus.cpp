@@ -12,7 +12,6 @@
 
 using namespace cccurses;
 using namespace electarus;
-namespace dbf = electarus::db;
 using electarus::Package;
 using electarus::Pin;
 
@@ -46,7 +45,7 @@ int main() {
 		Window &statusWin = pins;
 		statusWin.add(0, 0, "Importing SQLite DB:");
 		int files = 0, errors = 0;
-		dbf::importDatabase(db, [&](const string &filename, const int lineNr, const char *error) {
+		db::importDatabase(db, [&](const string &filename, const int lineNr, const char *error) {
 			files++;
 			if ( error != nullptr ) {
 				errors++;
@@ -85,4 +84,3 @@ int main() {
 
 	return EXIT_SUCCESS;
 }
-
